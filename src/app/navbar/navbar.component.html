@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <div class="container">
+    <img src="../../assets/logoK.png" width="60px" alt="">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/accueil" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">Accueil</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/actualiter" routerLinkActive="active-link" [routerLinkActiveOptions]="{exact: true}">actualiter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/atelier" routerLinkActive="active-link">Atelier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/formation" routerLinkActive="active-link">Formation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/allevenement" routerLinkActive="active-link">Événement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/artist" routerLinkActive="active-link">Galérie</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto">
+
+
+        <ng-container *ngIf="!isLoggedIn">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active-link">
+              <i class="fas fa-sign-in-alt"></i> Connexion
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/signup" routerLinkActive="active-link">
+              <i class="fas fa-user-plus"></i> Inscription
+            </a>
+          </li>
+        </ng-container>
+
+        <ng-container *ngIf="isLoggedIn">
+          <a class="nav-link" routerLink="/listParticipation" routerLinkActive="active-link">
+            <i class="fa-solid fa-fire"></i> participation 
+          </a>
+          <li class="nav-item">
+            <span class="nav-link user-name">
+              <i class="fas fa-user"></i> {{ currentUser?.user }}
+            </span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="javascript:void(0)" (click)="logout()">
+              <i class="fas fa-sign-out-alt"></i> Déconnexion
+            </a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,182 @@
+/* Style de la navbar */
+.navbar-custom {
+    background-color: rgba(18, 66, 113, 0.2); /* Couleur de fond semi-transparente (ajustez l'opacité selon vos besoins) */
+    color: #fff; /* Couleur du texte */
+    position: fixed; /* Fixe la navbar en haut de la page */
+    width: 100%; /* Prend toute la largeur de la page */
+    top: 0; /* Positionne la navbar en haut */
+    left: 0; /* Positionne la navbar à gauche */
+    z-index: 1000; /* Assure que la navbar est au-dessus du contenu de la page */
+    transition: background-color 0.3s ease; /* Ajoute une transition pour le changement de couleur */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+}
+
+/* Style des liens dans la navbar */
+.navbar-custom .nav-link {
+    color: #333; /* Couleur des liens */
+    font-weight: 500;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+}
+
+/* Style du lien actif */
+.navbar-custom .nav-link.active-link {
+    color: #A34343; /* Couleur rouge pour le lien actif */
+    position: relative;
+}
+
+.navbar-custom .nav-link.active-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15px;
+    right: 15px;
+    height: 2px;
+    background-color: #A34343;
+}
+
+/* Style au survol et focus des liens */
+.navbar-custom .nav-link:hover, .navbar-custom .nav-link:focus {
+    color: #A34343; /* Couleur du texte au survol ou lors du focus */
+}
+
+/* Ajoute un effet de flou si nécessaire */
+.navbar-custom {
+    backdrop-filter: blur(10px); /* Applique un effet de flou à l'arrière-plan de la navbar */
+}
+
+/* User Menu Styles */
+.user-name {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #A34343;
+    font-weight: 600;
+}
+
+.user-name i {
+    font-size: 1.1rem;
+}
+
+.navbar-custom .nav-link i {
+    margin-right: 6px;
+}
+
+/* Login/Signup Buttons */
+.navbar-custom .nav-item:last-child .nav-link {
+    margin-left: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .navbar-custom .navbar-nav {
+        padding: 10px 0;
+    }
+
+    .navbar-custom .nav-item {
+        margin: 5px 0;
+    }
+
+    .navbar-custom .active-link::after {
+        display: none;
+    }
+}
+
+/* Progress bar */
+.scroll-progress-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1100;
+}
+
+.scroll-progress-bar {
+    height: 100%;
+    background: #A34343;
+    width: 0%;
+    transition: width 0.2s ease;
+}
+
+/* Scroll-aware navigation */
+.navbar {
+    transition: all 0.3s ease;
+    padding: 20px 0;
+}
+
+.navbar.nav-scrolled {
+    padding: 10px 0;
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Active section indicators */
+.nav-link {
+    position: relative;
+    cursor: pointer;
+    padding: 5px 15px;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background: #A34343;
+    transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    background: #A34343;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #8B2525;
+    transform: translateY(-3px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .nav-link::after {
+        bottom: -2px;
+    }
+}
